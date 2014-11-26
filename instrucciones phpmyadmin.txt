@@ -1,0 +1,39 @@
+1.- creas una bd llamada: taqeurias
+
+2.- ejecutas las siguientes sentencias:
+
+CREATE TABLE  `usuarios` (
+ `id_usuario` INT( 11 ) NOT NULL DEFAULT  '0',
+ `usuario` VARCHAR( 50 ) COLLATE utf8_bin DEFAULT NULL ,
+ `pass` VARCHAR( 50 ) COLLATE utf8_bin DEFAULT NULL ,
+PRIMARY KEY (  `id_usuario` )
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COLLATE = utf8_bin;
+
+
+CREATE TABLE  `sucursales` (
+ `id_taq` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+ `nombre_taq` VARCHAR( 50 ) COLLATE utf8_bin NOT NULL ,
+ `direccion_taq` VARCHAR( 80 ) COLLATE utf8_bin NOT NULL ,
+ `promedio_taq` INT( 11 ) DEFAULT NULL ,
+PRIMARY KEY (  `id_taq` )
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COLLATE = utf8_bin;
+
+CREATE TABLE  `menus` (
+ `id_menu` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+ `producto` VARCHAR( 60 ) COLLATE utf8_bin NOT NULL ,
+ `costo` FLOAT DEFAULT NULL ,
+ `fk_menu_tq` INT( 11 ) DEFAULT NULL ,
+PRIMARY KEY (  `id_menu` ) ,
+KEY  `fk_menu_tq` (  `fk_menu_tq` )
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COLLATE = utf8_bin;
+
+CREATE TABLE  `comentarios` (
+ `id_comen` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+ `comen_nombre` VARCHAR( 50 ) COLLATE utf8_bin DEFAULT NULL ,
+ `comen_text` VARCHAR( 500 ) COLLATE utf8_bin DEFAULT NULL ,
+ `comen_cali` INT( 11 ) DEFAULT NULL ,
+ `fk_comen_tq` INT( 11 ) DEFAULT NULL ,
+PRIMARY KEY (  `id_comen` ) ,
+KEY  `fk_comen_tq` (  `fk_comen_tq` )
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COLLATE = utf8_bin;
+

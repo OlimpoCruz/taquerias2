@@ -1,0 +1,4 @@
+$servername = "mysql.hostinger.es";
+$username = "u676488434_root";
+$password = "petardas123";
+$dbname = "u676488434_tacos";
